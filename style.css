@@ -5,7 +5,7 @@ body {
     background-color: #f5f5f5;
 }
 
-#login-container {
+#login-container, #name-container {
     max-width: 400px;
     margin: 100px auto;
     padding: 20px;
@@ -15,7 +15,7 @@ body {
     text-align: center;
 }
 
-#login-form input {
+#login-form input, #name-form input {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -23,7 +23,7 @@ body {
     border-radius: 4px;
 }
 
-#login-form button {
+#login-form button, #name-form button {
     width: 100%;
     padding: 10px;
     background-color: #4CAF50;
@@ -44,6 +44,10 @@ body {
 
 header {
     margin-bottom: 20px;
+}
+
+#current-user-display {
+    color: #2196F3;
 }
 
 #chat-type-toggle {
