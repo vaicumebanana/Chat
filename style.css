@@ -1,46 +1,22 @@
-/* Estilos básicos (pode personalizar) */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background: #f5f5f5;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: #f4f4f4;
 }
 
-#chat-container {
-    max-width: 800px;
-    margin: 0 auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+.chat-box {
+  border: 1px solid #ccc;
+  height: 200px;
+  overflow-y: scroll;
+  padding: 10px;
+  background: white;
+  margin-bottom: 10px;
 }
 
-#chat-messages {
-    height: 400px;
-    overflow-y: auto;
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin: 10px 0;
+#onlineUsers {
+  margin-bottom: 15px;
 }
 
-.message {
-    margin-bottom: 10px;
-    padding: 8px;
-    background: #f0f0f0;
-    border-radius: 4px;
+#onlineUsers button {
+  margin-right: 5px;
 }
-
-#video-container {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-video {
-    width: 300px;
-    border-radius: 8px;
-    background: #000;
-}
-
-.hidden {
-    display: none
