@@ -3,23 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Escola</title>
+    <title>Chat</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Firebase (opcional para persistência) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <!-- WebRTC Adapter -->
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 </head>
 <body>
     <!-- Tela de Login -->
     <div id="login-container">
         <h1>Login</h1>
         <form id="login-form">
-            <input type="text" id="username" placeholder="Usuário" required>
-            <input type="password" id="password" placeholder="Senha" required>
+            <input type="text" id="username" placeholder="Usuário" required value="Escola">
+            <input type="password" id="password" placeholder="Senha" required value="Senha">
             <button type="submit">Entrar</button>
         </form>
     </div>
 
-    <!-- Tela de Nome do Usuário -->
+    <!-- Tela do Nome -->
     <div id="name-container" class="hidden">
-        <h1>Como você quer ser chamado?</h1>
+        <h1>Escolha seu nome no chat</h1>
         <form id="name-form">
             <input type="text" id="user-name" placeholder="Seu nome" required>
             <button type="submit">Continuar</button>
@@ -29,22 +34,39 @@
     <!-- Tela do Chat -->
     <div id="chat-container" class="hidden">
         <header>
-            <h1>Chat da Escola - <span id="current-user-display"></span></h1>
-            <div id="chat-type-toggle">
-                <button class="active" id="public-chat-btn">Chat Público</button>
-                <button id="private-chat-btn">Chat Privado</button>
-            </div>
+            <h1>Chat - <span id="current-user"></span></h1>
+            <div id="online-count">Online: <span>1</span></div>
+        </header>
+
+        <!-- Alternar entre chat público/privado -->
+        <div id="chat-toggle">
+            <button id="public-chat-btn" class="active">Público</button>
+            <button id="private-chat-btn">Privado</button>
             <select id="private-recipient" class="hidden">
                 <option value="">Selecione um usuário</option>
             </select>
-        </header>
-        
+        </div>
+
+        <!-- Mensagens -->
         <div id="chat-messages"></div>
-        
+
+        <!-- Formulário de mensagem -->
         <form id="message-form">
             <input type="text" id="message-input" placeholder="Digite sua mensagem..." required>
             <button type="submit">Enviar</button>
         </form>
+
+        <!-- Controles de chamada -->
+        <div id="call-controls">
+            <button id="start-call-btn">Iniciar Chamada</button>
+            <button id="end-call-btn" class="hidden">Encerrar</button>
+        </div>
+
+        <!-- Vídeos (WebRTC) -->
+        <div id="video-container" class="hidden">
+            <video id="local-video" autoplay muted></video>
+            <video id="remote-video" autoplay></video>
+        </div>
     </div>
 
     <script src="script.js"></script>
