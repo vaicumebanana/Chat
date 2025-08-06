@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Público - Escola</title>
+    <title>Chat Escola</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,17 +18,17 @@
 
     <div id="chat-container" class="hidden">
         <header>
-            <h1>Chat Público</h1>
-            <button id="voice-chat-btn">Iniciar Chamada de Voz</button>
+            <h1>Chat da Escola</h1>
+            <div id="chat-type-toggle">
+                <button class="active" id="public-chat-btn">Chat Público</button>
+                <button id="private-chat-btn">Chat Privado</button>
+            </div>
+            <select id="private-recipient" class="hidden">
+                <option value="">Selecione um usuário</option>
+            </select>
         </header>
         
         <div id="chat-messages"></div>
-        
-        <div id="voice-chat-container" class="hidden">
-            <h2>Chamada de Voz Ativa</h2>
-            <div id="voice-participants"></div>
-            <button id="end-call-btn">Encerrar Chamada</button>
-        </div>
         
         <form id="message-form">
             <input type="text" id="message-input" placeholder="Digite sua mensagem..." required>
