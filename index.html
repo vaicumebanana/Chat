@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Tela de Login -->
     <div id="login-container">
         <h1>Login</h1>
         <form id="login-form">
@@ -16,9 +17,19 @@
         </form>
     </div>
 
+    <!-- Tela de Nome do Usuário -->
+    <div id="name-container" class="hidden">
+        <h1>Como você quer ser chamado?</h1>
+        <form id="name-form">
+            <input type="text" id="user-name" placeholder="Seu nome" required>
+            <button type="submit">Continuar</button>
+        </form>
+    </div>
+
+    <!-- Tela do Chat -->
     <div id="chat-container" class="hidden">
         <header>
-            <h1>Chat da Escola</h1>
+            <h1>Chat da Escola - <span id="current-user-display"></span></h1>
             <div id="chat-type-toggle">
                 <button class="active" id="public-chat-btn">Chat Público</button>
                 <button id="private-chat-btn">Chat Privado</button>
