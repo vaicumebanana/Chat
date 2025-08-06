@@ -1,74 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Firebase (opcional para persistência) -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-    <!-- WebRTC Adapter -->
-    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chat Público e Privado</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-database-compat.js"></script>
 </head>
 <body>
-    <!-- Tela de Login -->
-    <div id="login-container">
-        <h1>Login</h1>
-        <form id="login-form">
-            <input type="text" id="username" placeholder="Usuário" required value="Escola">
-            <input type="password" id="password" placeholder="Senha" required value="Senha">
-            <button type="submit">Entrar</button>
-        </form>
-    </div>
+  <div id="loginScreen">
+    <h2>Entrar no Chat</h2>
+    <input type="text" id="username" placeholder="Seu nome" />
+    <button onclick="login()">Entrar</button>
+  </div>
 
-    <!-- Tela do Nome -->
-    <div id="name-container" class="hidden">
-        <h1>Escolha seu nome no chat</h1>
-        <form id="name-form">
-            <input type="text" id="user-name" placeholder="Seu nome" required>
-            <button type="submit">Continuar</button>
-        </form>
-    </div>
+  <div id="chatScreen" style="display:none;">
+    <h2>Bem-vindo, <span id="userDisplay"></span></h2>
 
-    <!-- Tela do Chat -->
-    <div id="chat-container" class="hidden">
-        <header>
-            <h1>Chat - <span id="current-user"></span></h1>
-            <div id="online-count">Online: <span>1</span></div>
-        </header>
+    <div id="onlineUsers"></div>
 
-        <!-- Alternar entre chat público/privado -->
-        <div id="chat-toggle">
-            <button id="public-chat-btn" class="active">Público</button>
-            <button id="private-chat-btn">Privado</button>
-            <select id="private-recipient" class="hidden">
-                <option value="">Selecione um usuário</option>
-            </select>
-        </div>
+    <h3>Chat Público</h3>
+    <div id="publicMessages" class="chat-box"></div>
+    <input type="text" id="publicInput" placeholder="Mensagem pública" />
+    <button onclick="sendPublicMessage()">Enviar</button>
 
-        <!-- Mensagens -->
-        <div id="chat-messages"></div>
+    <h3>Chat Privado com <span id="privateTo"></span></h3>
+    <div id="privateMessages" class="chat-box"></div>
+    <input type="text" id="privateInput" placeholder="Mensagem privada" />
+    <button onclick="sendPrivateMessage()">Enviar</button>
+  </div>
 
-        <!-- Formulário de mensagem -->
-        <form id="message-form">
-            <input type="text" id="message-input" placeholder="Digite sua mensagem..." required>
-            <button type="submit">Enviar</button>
-        </form>
-
-        <!-- Controles de chamada -->
-        <div id="call-controls">
-            <button id="start-call-btn">Iniciar Chamada</button>
-            <button id="end-call-btn" class="hidden">Encerrar</button>
-        </div>
-
-        <!-- Vídeos (WebRTC) -->
-        <div id="video-container" class="hidden">
-            <video id="local-video" autoplay muted></video>
-            <video id="remote-video" autoplay></video>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
