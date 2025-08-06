@@ -1,77 +1,18 @@
+/* Estilos básicos (pode personalizar) */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-}
-
-#login-container, #name-container {
-    max-width: 400px;
-    margin: 100px auto;
     padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-#login-form input, #name-form input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-#login-form button, #name-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    background: #f5f5f5;
 }
 
 #chat-container {
     max-width: 800px;
-    margin: 20px auto;
+    margin: 0 auto;
     background: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
     padding: 20px;
-}
-
-header {
-    margin-bottom: 20px;
-}
-
-#current-user-display {
-    color: #2196F3;
-}
-
-#chat-type-toggle {
-    display: flex;
-    margin-bottom: 10px;
-}
-
-#chat-type-toggle button {
-    flex: 1;
-    padding: 8px;
-    background-color: #ddd;
-    border: none;
-    cursor: pointer;
-}
-
-#chat-type-toggle button.active {
-    background-color: #4CAF50;
-    color: white;
-}
-
-#private-recipient {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 #chat-messages {
@@ -79,58 +20,27 @@ header {
     overflow-y: auto;
     border: 1px solid #ddd;
     padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 4px;
+    margin: 10px 0;
 }
 
 .message {
     margin-bottom: 10px;
     padding: 8px;
-    background-color: #f9f9f9;
+    background: #f0f0f0;
     border-radius: 4px;
 }
 
-.message.private {
-    background-color: #fff3e0;
-    border-left: 3px solid #ff9800;
-}
-
-.message .sender {
-    font-weight: bold;
-    color: #2196F3;
-}
-
-.message .recipient {
-    font-style: italic;
-    color: #ff9800;
-}
-
-.message .time {
-    font-size: 0.8em;
-    color: #777;
-    float: right;
-}
-
-#message-form {
+#video-container {
     display: flex;
+    gap: 10px;
+    margin-top: 20px;
 }
 
-#message-input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px 0 0 4px;
-}
-
-#message-form button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
+video {
+    width: 300px;
+    border-radius: 8px;
+    background: #000;
 }
 
 .hidden {
-    display: none;
-}
+    display: none
